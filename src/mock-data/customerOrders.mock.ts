@@ -1,0 +1,87 @@
+import { CustomerOrder } from "../models/customerOrder";
+import { mockCustomerOrderItems } from "./customerOrderItems.mock";
+import { PaymentStatus } from "../models/enums/paymentStatus";
+import { CustomerOrderStatus } from "../models/enums/customerOrderStatus";
+
+export const mockCustomerOrders: CustomerOrder[] = [
+    {
+        orderId: 1,
+        orderNumber: '12345',
+        orderItems: mockCustomerOrderItems.filter(item => item.orderId === 1),
+        customer: {
+            customerId: 1,
+            firstName: 'Aanchal',
+            lastName: 'Kapoor',
+            address: 'Ludhiana',
+            phoneNumber: '0987654321',
+            email: 'aanchal.kapoor@gmail.com',
+            description: 'raju123',
+            gstNumber: 'abcd1234',
+        },
+        orderDate: new Date('2020/1/23'),
+        paymentStatus: PaymentStatus.UNPAID,
+        orderStatus: CustomerOrderStatus.IN_PROCESS,
+        totalCostPrice: 31000,
+        totalSellingPrice: 33500,
+    },
+    {
+        orderId: 2,
+        orderNumber: '23456',
+        orderItems: mockCustomerOrderItems.filter(item => item.orderId === 2),
+        customer: {
+            customerId: 2,
+            firstName: 'Rajiv',
+            lastName: 'Kaushal',
+            address: 'Udaipur',
+            phoneNumber: '0987654321',
+            email: 'rajiv.kaushal@gmail.com',
+            description: 'arjun123',
+            gstNumber: 'abcd1234',
+        },
+        orderDate: new Date('2020/1/23'),
+        paymentStatus: PaymentStatus.PARTIALLY_PAID,
+        orderStatus: CustomerOrderStatus.IN_PROCESS,
+        totalCostPrice: 64000,
+        totalSellingPrice: 71000,
+    },
+    {
+        orderId: 3,
+        orderNumber: '34567',
+        orderItems: mockCustomerOrderItems.filter(item => item.orderId === 3),
+        customer: {
+            customerId: 3,
+            firstName: 'Ravnish',
+            lastName: 'Bhalla',
+            address: 'Delhi',
+            phoneNumber: '0987654321',
+            email: 'ravnish.bhalla@gmail.com',
+            description: 'farhan123',
+            gstNumber: 'abcd1234',
+        },
+        orderDate: new Date('2020/1/23'),
+        paymentStatus: PaymentStatus.OVERDUE,
+        orderStatus: CustomerOrderStatus.IN_PROCESS,
+        totalCostPrice: 132000,
+        totalSellingPrice: 145000,
+    },
+    {
+        orderId: 4,
+        orderNumber: '45678',
+        orderItems: mockCustomerOrderItems.filter(item => item.orderId === 4),
+        customer: {
+            customerId: 4,
+            firstName: 'Devinder',
+            lastName: 'Malhotra',
+            address: 'Lucknow',
+            phoneNumber: '0987654321',
+            email: 'devinder.malhotra@gmail.com',
+            description: 'raju123',
+            gstNumber: 'abcd1234',
+        },
+        orderDate: new Date('2020/1/23'),
+        paymentStatus: PaymentStatus.PAID,
+        orderStatus: CustomerOrderStatus.DELIVERED,
+        totalCostPrice: 8625,
+        totalSellingPrice: 9750,
+    }
+];
